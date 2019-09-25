@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SectionManager : MonoBehaviour
 {
-    public enum sectionDifficulty {easy, medium, challenger, hard, insane, unset}
+  /*  public enum sectionDifficulty {easy, medium, challenger, hard, insane, unset}
     public sectionDifficulty difficulty = sectionDifficulty.unset;
     sectionDifficulty _difficulty = sectionDifficulty.unset;
 
@@ -84,5 +84,5 @@ public class SectionManager : MonoBehaviour
         }
     }
 
-
+    */
 }
