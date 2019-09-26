@@ -8,6 +8,7 @@ public class UI_control : MonoBehaviour
 
 {
     public Text scoreText;
+   
     // Start is called before the first frame update
 
     void Start()
@@ -19,10 +20,15 @@ public class UI_control : MonoBehaviour
         SceneManager.LoadScene(1);
         scoring.Instance.score = 0;
     }
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
+
 
 // Update is called once per frame
 void Update()
     {
-        scoreText.text = scoring.Instance.score.ToString();
+        scoreText.text = "Hi-Score: " + scoring.Instance.hiScore.ToString();
     }
 }

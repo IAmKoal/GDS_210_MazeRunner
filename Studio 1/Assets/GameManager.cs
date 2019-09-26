@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour
     {
         if (other.gameObject.tag == "death")
         {
+            if(scoring.Instance.score > scoring.Instance.hiScore)
+            {
+                scoring.Instance.hiScore = scoring.Instance.score;
+            }
             SceneManager.LoadScene(0);
         }
         if (other.gameObject.tag == "shieldPwr")
