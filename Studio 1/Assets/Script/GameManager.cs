@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        GameObject sect = Instantiate(wallSections[0], sectionSpawn.transform.position, Quaternion.identity) as GameObject;
+  
+        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x -2, sectionSpawn.position.y - 10, sectionSpawn.position.z);
+        GameObject sect = Instantiate(wallSections[1], firstSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect.gameObject);
     }
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
             if (activeSections.Count != 0)
             {
                 Transform prevSect = activeSections[activeSections.Count - 1].transform;
-                Vector3 newSpawn = new Vector3(prevSect.position.x  , prevSect.position.y -20, prevSect.position.z);
+                Vector3 newSpawn = new Vector3(prevSect.position.x  , prevSect.position.y -19, prevSect.position.z);
 
                 GameObject newSect = Instantiate(wallSections[Random.Range(1, 5)], newSpawn, Quaternion.identity) as GameObject;
                 activeSections.Add(newSect.gameObject);
