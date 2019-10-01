@@ -8,6 +8,7 @@ TagManager:
   - Shield
   - startLine
   - endLine
+  - levelGenLine
   layers:
   - Default
   - TransparentFX

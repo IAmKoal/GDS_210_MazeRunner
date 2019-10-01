@@ -10,7 +10,6 @@ public class SpeedPickUp : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("collision with player");
             player = collider.gameObject;
             //gives player instant speed boost
             Vector2 playerVel = player.GetComponent<Rigidbody2D>().velocity;

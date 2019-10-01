@@ -27,7 +27,6 @@ public class Scoring : MonoBehaviour
 
     void GetScore()
     {
-        Debug.Log(velocity);
         currentScore += (1 * velocity);
     }
 

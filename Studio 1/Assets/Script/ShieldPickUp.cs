@@ -13,11 +13,9 @@ public class ShieldPickUp : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Shield"))
         {
-            Debug.Log("collision with player");
             player = collider.gameObject;
             shield = true;
             sR.color = Color.blue;
-            Debug.Log("You received a shield!");
             //gives player shield power up
             Destroy(collider.gameObject);
             //destroys power up

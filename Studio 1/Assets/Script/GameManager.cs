@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> wallSections;
     public List<GameObject> activeSections;
     public Transform sectionSpawn;
+    Vector3 levelDisplacement = new Vector3(0, -19, 0);
 
    
 
@@ -18,8 +19,11 @@ public class GameManager : MonoBehaviour
     {
   
         Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 10, sectionSpawn.position.z);
-        GameObject sect = Instantiate(wallSections[1], firstSpawn, Quaternion.identity) as GameObject;
-        activeSections.Add(sect.gameObject);
+        Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 29, sectionSpawn.position.z);
+        GameObject sect1 = Instantiate(wallSections[1], firstSpawn, Quaternion.identity) as GameObject;
+        activeSections.Add(sect1);
+        GameObject sect2 = Instantiate(wallSections[Random.Range(1, 5)], secondSpawn, Quaternion.identity) as GameObject;
+        activeSections.Add(sect2);
     }
 
     // Update is called once per frame
@@ -54,7 +58,46 @@ public class GameManager : MonoBehaviour
         {
             //speed up
         }
+        if (other.gameObject.CompareTag("levelGenLine"))
+        {
+            if (!other.gameObject.GetComponent<LevelController>().madeLevel)
+            {
+                NewSection();
+                other.gameObject.GetComponent<LevelController>().madeLevel = true;
+            }
+        }
     }
+
+    void NewSection()
+    {
+        Vector3 newSpawn = activeSections[activeSections.Count - 1].transform.position + levelDisplacement;
+        GameObject newSect = Instantiate(wallSections[Random.Range(1, 5)], newSpawn, Quaternion.identity) as GameObject;
+        activeSections.Add(newSect.gameObject);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("levelGenLine"))
+        {
+            if (!other.gameObject.GetComponent<LevelController>().deletedLevel)
+            {
+                sectionCollector();
+                other.gameObject.GetComponent<LevelController>().deletedLevel = true;
+            }
+        }
+    }
+
+    void sectionCollector()
+    {
+        if(activeSections.Count > 4)
+        {
+            Destroy(activeSections[0]);
+            activeSections.RemoveAt(0);
+        }
+    }
+
+
+    /*
    private void OnTriggerExit2D(Collider2D other)
    {
         if (other.gameObject.tag == "startLine")
@@ -66,7 +109,7 @@ public class GameManager : MonoBehaviour
 
                 GameObject newSect = Instantiate(wallSections[Random.Range(1, 5)], newSpawn, Quaternion.identity) as GameObject;
                 activeSections.Add(newSect.gameObject);
-            
+                Destroy(other);            
             }
         }
         if (other.gameObject.tag == "endLine")
@@ -78,7 +121,9 @@ public class GameManager : MonoBehaviour
                // activeSections.Remove(;
             }
             Singleton.Instance.score += 100;
+            Destroy(other);
         }
       
     }
+    */
 }
