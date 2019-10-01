@@ -28,6 +28,9 @@ public class ArtificialGravity : MonoBehaviour
     private float yHeight = -0.5f;
     private float leftX;
     private float rightX;
+    private float accelX;
+    private float speed = 120;
+    public Vector2 accelVector = new Vector2();
 
     public Rigidbody2D playerRb;
     private void Start()
@@ -41,13 +44,31 @@ public class ArtificialGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Gravity();
+        accelX = Input.acceleration.x * 4;
+        accelVector.x = accelX;
+        accelVector.y = -1;
         
+        Gravity();
+        gravityStrength += 1;
     }
 
     void Gravity()
     {
-        playerRb.AddForce(gravityAngle *gravityStrength* Time.deltaTime);
+        if (Singleton.Instance.isSlidered == true)
+        {
+            playerRb.AddForce(gravityAngle * gravityStrength * Time.deltaTime);
+        }
+        else if (Singleton.Instance.isTilted == true)
+        {
+            playerRb.AddForce(accelVector * gravityStrength * Time.deltaTime);
+
+
+
+        }
+        else if (Singleton.Instance.isTouched == true)
+        {
+            //touch gravity code
+        }
     }
 
     Vector2 GravityVectorModifier(Vector2 newVector)
