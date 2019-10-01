@@ -35,6 +35,7 @@ public class Scoring : MonoBehaviour
     {
         text.text = scoreWord + currentScore;
         Singleton.Instance.hiScore = currentScore;
+        PlayerPrefs.SetFloat("highscore", currentScore);
     }
 
     //Created by Josh Shinnick.

@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                 Transform prevSect = activeSections[activeSections.Count - 1].transform;
                 Vector3 newSpawn = new Vector3(prevSect.position.x  , prevSect.position.y -19, prevSect.position.z);
 
-                GameObject newSect = Instantiate(wallSections[Random.Range(1, 5)], newSpawn, Quaternion.identity) as GameObject;
+                GameObject newSect = Instantiate(wallSections[Random.Range(1, 6)], newSpawn, Quaternion.identity) as GameObject;
                 activeSections.Add(newSect.gameObject);
             
             }
@@ -73,9 +73,10 @@ public class GameManager : MonoBehaviour
         {
             if (activeSections.Count !=0)
             {
-                Destroy(activeSections[activeSections.Count - 2]);
-               // activeSections.RemoveAt(activeSections.Count - 1);
-               // activeSections.Remove(;
+               // Destroy(activeSections[activeSections.Count - 2]);
+                activeSections.RemoveAt(activeSections.Count - 2);
+                // activeSections.Remove(;
+                Destroy(other);
             }
             Singleton.Instance.score += 100;
         }
