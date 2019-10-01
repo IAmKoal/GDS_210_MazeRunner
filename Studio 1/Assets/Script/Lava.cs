@@ -19,7 +19,7 @@ public class Lava : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Lava") && sC.shield == false && !sC.invulnerable)
         {
-            Debug.Log("You died! Try again");
+           // Debug.Log("You died! Try again");
             SceneManager.LoadScene(0);
             //load death/restart scene
         }
@@ -27,12 +27,12 @@ public class Lava : MonoBehaviour
         if (collider.gameObject.CompareTag("Lava") && sC.shield == true && !sC.invulnerable)
         {
             sR.color = Color.cyan;
-            Debug.Log("Good thing you had a shield");
+           // Debug.Log("Good thing you had a shield");
             StartCoroutine(Invulnerability());
             sC.shield = false;
             sC.invulnerable = true;
             //waits specified amount of time and removes players sheild power up
-            Debug.Log("You have used your shield");
+           // Debug.Log("You have used your shield");
         }
     }
 

@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 6589305864033156821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children:
   - {fileID: 6566291213464086364}
   m_Father: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityStrength: 2000
+  accelVector: {x: 0, y: 0}
   playerRb: {fileID: 6589305864033156825}
 --- !u!114 &5984341491031277215
 MonoBehaviour:
@@ -188,8 +189,14 @@ MonoBehaviour:
   - {fileID: 8368646947348585275, guid: 61bc3d20aa1255c4cb34c91e3f981c66, type: 3}
   - {fileID: 8374773928311003054, guid: 6cb1e1504294de749bceab4a0c01a438, type: 3}
   - {fileID: 1225896020076704611, guid: 637a99809ab583847a746e0cf3bb9042, type: 3}
+  - {fileID: 7076987410667447350, guid: 320b1ea17f087f544892a2c84e001931, type: 3}
+  - {fileID: 4360350290528212653, guid: 5b793568389168944a0bfe312f0e01ac, type: 3}
   activeSections: []
   sectionSpawn: {fileID: 6566291213464086364}
+  sectionCount: 0
+  easyCount: 5
+  medCount: 10
+  hardCount: 15
 --- !u!1 &6604680860562609648
 GameObject:
   m_ObjectHideFlags: 0

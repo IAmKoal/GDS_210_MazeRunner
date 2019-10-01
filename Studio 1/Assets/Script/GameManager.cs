@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> activeSections;
     public Transform sectionSpawn;
     Vector3 levelDisplacement = new Vector3(0, -19, 0);
+    public int sectionCount = 0;
+    public int easyCount = 5;
+    public int medCount = 10;
+    public int hardCount = 15;
 
    
 
@@ -18,12 +22,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
   
-        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 10, sectionSpawn.position.z);
+        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y -15, sectionSpawn.position.z);
         Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 29, sectionSpawn.position.z);
-        GameObject sect1 = Instantiate(wallSections[1], firstSpawn, Quaternion.identity) as GameObject;
+        GameObject sect1 = Instantiate(wallSections[0], firstSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect1);
         GameObject sect2 = Instantiate(wallSections[Random.Range(1, 5)], secondSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect2);
+        sectionCount += 1;
     }
 
     // Update is called once per frame
@@ -70,9 +75,29 @@ public class GameManager : MonoBehaviour
 
     void NewSection()
     {
+        sectionCount += 1;
         Vector3 newSpawn = activeSections[activeSections.Count - 1].transform.position + levelDisplacement;
-        GameObject newSect = Instantiate(wallSections[Random.Range(1, 5)], newSpawn, Quaternion.identity) as GameObject;
-        activeSections.Add(newSect.gameObject);
+        if (sectionCount <= easyCount)// EASY DIFFICULTY
+        {
+            GameObject newSect = Instantiate(wallSections[Random.Range(1, 5)], newSpawn, Quaternion.identity) as GameObject;
+            activeSections.Add(newSect.gameObject);
+            
+        }
+        else if (sectionCount > easyCount && sectionCount <= medCount)// MEDIUM DIFFICULTY
+        {
+            GameObject newSect = Instantiate(wallSections[Random.Range(6, 8)], newSpawn, Quaternion.identity) as GameObject;
+            activeSections.Add(newSect.gameObject);
+        }else if (sectionCount >medCount && sectionCount <= hardCount) // HARD DIFFICULTY
+        {
+            GameObject newSect = Instantiate(wallSections[Random.Range(9, 11)], newSpawn, Quaternion.identity) as GameObject;
+            activeSections.Add(newSect.gameObject);
+        }else if (sectionCount > hardCount) // FURTHER
+        {
+            GameObject newSect = Instantiate(wallSections[Random.Range(9, 11)], newSpawn, Quaternion.identity) as GameObject;
+            activeSections.Add(newSect.gameObject);
+        }
+       
+       
     }
 
     private void OnTriggerExit2D(Collider2D other)
