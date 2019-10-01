@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class camera : MonoBehaviour
 {
     public Transform player;
@@ -19,5 +19,9 @@ public class camera : MonoBehaviour
         transform.position = player.transform.position + cameraDisplacement;
     }
 
+    public void QuitButton()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }

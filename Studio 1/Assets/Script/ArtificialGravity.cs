@@ -29,7 +29,8 @@ public class ArtificialGravity : MonoBehaviour
     private float leftX;
     private float rightX;
     private float accelX;
-    private float speed = 120;
+    private float speed = 120;
+
     public Vector2 accelVector = new Vector2();
 
     public Rigidbody2D playerRb;
@@ -54,20 +55,30 @@ public class ArtificialGravity : MonoBehaviour
 
     void Gravity()
     {
-        if (Singleton.Instance.isSlidered == true)
-        {
-            playerRb.AddForce(gravityAngle * gravityStrength * Time.deltaTime);
-        }
-        else if (Singleton.Instance.isTilted == true)
-        {
+        if (Singleton.Instance.isSlidered == true)
+
+        {
+
+            playerRb.AddForce(gravityAngle * gravityStrength * Time.deltaTime);
+
+        }
+
+        else if (Singleton.Instance.isTilted == true)
+
+        {
+
             playerRb.AddForce(accelVector * gravityStrength * Time.deltaTime);
 
 
 
-        }
-        else if (Singleton.Instance.isTouched == true)
-        {
-            //touch gravity code
+        }
+
+        else if (Singleton.Instance.isTouched == true)
+
+        {
+
+            //touch gravity code
+
         }
     }
 

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
   
-        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x -2, sectionSpawn.position.y - 10, sectionSpawn.position.z);
+        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 10, sectionSpawn.position.z);
         GameObject sect = Instantiate(wallSections[1], firstSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect.gameObject);
     }
