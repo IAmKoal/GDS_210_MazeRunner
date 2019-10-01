@@ -8,14 +8,13 @@ public class SpeedPickUp : MonoBehaviour
     GameObject player;
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("collision with power up");
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("collision with player");
             player = collider.gameObject;
             //gives player instant speed boost
             Vector2 playerVel = player.GetComponent<Rigidbody2D>().velocity;
-            player.GetComponent<Rigidbody2D>().velocity = playerVel * 2f;
+            player.GetComponent<Rigidbody2D>().velocity = playerVel * 1.5f;
             //gives player gravity increase
             aG = player.GetComponent<ArtificialGravity>();
             aG.gravityStrength = (int)(aG.gravityStrength * 1.1f);

@@ -16,7 +16,7 @@ public class SpeedZone : MonoBehaviour
             aG = player.GetComponent<ArtificialGravity>();
             gravOnEnter = aG.gravityStrength;
             //gives player gravity increase
-            aG.gravityStrength = (int)(aG.gravityStrength * 1.5f);
+            aG.gravityStrength = (int)(aG.gravityStrength * 1.2f);
         }
         else { }
     }
