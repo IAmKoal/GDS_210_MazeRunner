@@ -35,7 +35,14 @@ public class Singleton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerPrefs.GetInt("highscore") > 0)
+        {
+            hiScore = PlayerPrefs.GetInt("highscore");
+        }
+        else if (PlayerPrefs.GetInt("highscore") > hiScore)
+        {
+            PlayerPrefs.SetInt("highscore", hiScore);
+        }
     }
 }
  

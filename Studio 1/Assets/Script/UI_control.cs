@@ -33,6 +33,7 @@ public class UI_control : MonoBehaviour
 // Update is called once per frame
 void Update()
     {
+        
         scoreText.text = "Hi-Score: " + Singleton.Instance.hiScore.ToString() + " :)";
     }
 }
