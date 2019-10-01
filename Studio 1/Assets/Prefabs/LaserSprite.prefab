@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4285425823681449326}
-  - component: {fileID: 2541248733652004655}
+  - component: {fileID: 3724847357894852977}
   m_Layer: 0
   m_Name: Actual Laser
   m_TagString: Lava
@@ -31,8 +31,8 @@ Transform:
   m_Father: {fileID: 4707100250925781720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &2541248733652004655
-PolygonCollider2D:
+--- !u!61 &3724847357894852977
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -41,10 +41,10 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0068560243, y: 0.19396973}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -54,13 +54,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.034490585, y: 0.40792084}
-      - {x: -2.6123285, y: 0.39524174}
-      - {x: -2.6112022, y: 0.12221432}
-      - {x: 2.5997066, y: 0.12221432}
-      - {x: 2.5950832, y: 0.38949394}
+  serializedVersion: 2
+  m_Size: {x: 3.9073572, y: 0.24028397}
+  m_EdgeRadius: 0
 --- !u!1 &7279901609952876406
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 7279901609952876406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.370395, y: -14.456154, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1786671, y: 1, z: 1}
   m_Children:
   - {fileID: 4285425823681449326}
   m_Father: {fileID: 0}
@@ -157,18 +153,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.8481884, y: 0.24983835}
+  m_Offset: {x: -2.231061, y: 0.19730425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 6.4}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7036228, y: 1.3032503}
+  m_Size: {x: 0.566483, y: 1.0365419}
   m_EdgeRadius: 0
 --- !u!61 &4366802367048806530
 BoxCollider2D:
@@ -183,16 +179,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.8435426, y: 0.25603724}
+  m_Offset: {x: 2.2367005, y: 0.1913805}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 6.4}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.71291447, y: 1.325757}
+  m_Size: {x: 0.55520403, y: 1.0186367}
   m_EdgeRadius: 0
