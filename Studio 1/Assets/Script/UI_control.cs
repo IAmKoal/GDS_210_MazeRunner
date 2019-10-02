@@ -19,6 +19,7 @@ public class UI_control : MonoBehaviour
     {
         SceneManager.LoadScene(2);
         Singleton.Instance.score = 0;
+        Singleton.Instance.isDead = false;
     }
     public void OptionsButton()
     {

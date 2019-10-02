@@ -2,25 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Lava : MonoBehaviour
 {
     ShieldPickUp sC;
     GameObject player;
     public SpriteRenderer sR;
+    public AudioSource deathSource;
+    public  AudioClip deathClip;
+    public bool isPlaying;
+   
 
     private void Start()
     {
         player = gameObject;
         sC = player.GetComponent<ShieldPickUp>();
+        deathSource.clip = deathClip;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Lava") && sC.shield == false && !sC.invulnerable)
         {
-           // Debug.Log("You died! Try again");
-            SceneManager.LoadScene(0);
+            deathSource.PlayOneShot(deathClip);
+            sR.color = Color.red;
+           
+            StartCoroutine("WaitTime");
+            // Debug.Log("You died! Try again");
+         
+          
             //load death/restart scene
         }
 
@@ -48,5 +59,14 @@ public class Lava : MonoBehaviour
         {
             sR.color = Color.white;
         }
+    }
+
+    IEnumerator WaitTime()
+    {
+        Singleton.Instance.isDead = true;
+        yield return new WaitForSeconds(2);
+      
+        SceneManager.LoadScene(0);
+
     }
 }

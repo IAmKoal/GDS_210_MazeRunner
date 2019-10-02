@@ -8,9 +8,10 @@ public class Singleton : MonoBehaviour
     public int score = 0;
     public int hiScore = 0;
     public bool isTilted = false;
-    public bool isSlidered = true;
+    public bool isSlidered = false;
     public bool isTouched = false;
-
+    public bool isDead = false;
+    
     public static Singleton Instance { get; private set; }
     private void Awake()
     {
@@ -23,26 +24,26 @@ public class Singleton : MonoBehaviour
         {
             Destroy(gameObject);
         }
-  
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            isTilted = true;
+        }else if(SystemInfo.deviceType == DeviceType.Desktop)
+        {
+            isSlidered = true;
+        }
+
     }
     
     // Start is called before the first frame update
     void Start()
     {
-      
+       hiScore =  PlayerPrefs.GetInt("highscore", 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("highscore") > 0)
-        {
-            hiScore = PlayerPrefs.GetInt("highscore");
-        }
-        else if (PlayerPrefs.GetInt("highscore") > hiScore)
-        {
-            PlayerPrefs.SetInt("highscore", hiScore);
-        }
+      PlayerPrefs.SetInt("highscore", hiScore);      
     }
 }
  

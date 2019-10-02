@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &61325264 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3044584071674274541, guid: ede663941c3acc54b845b04ae540de02,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864717848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200698497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,5 +1295,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6589305865748754501, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1952511871}
+    - target: {fileID: 6589305865748754501, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: deathSource
+      value: 
+      objectReference: {fileID: 61325264}
+    - target: {fileID: 3044584071674274541, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903355715860914589, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163741215251293305, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535903709531142079, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ede663941c3acc54b845b04ae540de02, type: 3}
+--- !u!82 &1952511871 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4903355715860914589, guid: ede663941c3acc54b845b04ae540de02,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864717848}
+  m_PrefabAsset: {fileID: 0}

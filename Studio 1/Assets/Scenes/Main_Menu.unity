@@ -839,6 +839,7 @@ MonoBehaviour:
   isTilted: 0
   isSlidered: 1
   isTouched: 0
+  isDead: 0
 --- !u!4 &1738713075
 Transform:
   m_ObjectHideFlags: 0

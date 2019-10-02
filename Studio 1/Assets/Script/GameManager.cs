@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
     public int medCount = 10;
     public int hardCount = 15;
 
-   
 
+    
     // Start is called before the first frame update
     void Start()
     {
+        
+   
   
         Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y -15, sectionSpawn.position.z);
         Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 29, sectionSpawn.position.z);
@@ -41,11 +43,16 @@ public class GameManager : MonoBehaviour
     {
         if (other.gameObject.tag == "death")
         {
+         
+
+            StartCoroutine("WaitTime");
+            
             if(Singleton.Instance.score > Singleton.Instance.hiScore)
             {
                 Singleton.Instance.hiScore = Singleton.Instance.score;
             }
-            SceneManager.LoadScene(0);
+         
+        
         }
         if (other.gameObject.tag == "shieldPwr")
         {
@@ -120,7 +127,6 @@ public class GameManager : MonoBehaviour
             activeSections.RemoveAt(0);
         }
     }
-
 
     /*
    private void OnTriggerExit2D(Collider2D other)

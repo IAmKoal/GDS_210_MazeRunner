@@ -55,31 +55,37 @@ public class ArtificialGravity : MonoBehaviour
 
     void Gravity()
     {
-        if (Singleton.Instance.isSlidered == true)
-
+        if (!Singleton.Instance.isDead)
         {
+            if (Singleton.Instance.isSlidered == true)
 
-            playerRb.AddForce(gravityAngle * gravityStrength * Time.deltaTime);
+            {
 
+                playerRb.AddForce(gravityAngle * gravityStrength * Time.deltaTime);
+
+            }
+
+            else if (Singleton.Instance.isTilted == true)
+
+            {
+
+                playerRb.AddForce(accelVector * gravityStrength * Time.deltaTime);
+
+            }
+
+            else if (Singleton.Instance.isTouched == true)
+
+            {
+
+                //touch gravity code
+
+            }
         }
-
-        else if (Singleton.Instance.isTilted == true)
-
-        {
-
-            playerRb.AddForce(accelVector * gravityStrength * Time.deltaTime);
-
-
-
-        }
-
-        else if (Singleton.Instance.isTouched == true)
-
-        {
-
-            //touch gravity code
-
-        }
+            
+            
+        
+      
+       
     }
 
     Vector2 GravityVectorModifier(Vector2 newVector)
@@ -152,7 +158,15 @@ public class ArtificialGravity : MonoBehaviour
     }
 
 
+    void FixedUpdate()
+    {
+        if (Singleton.Instance.isDead == true) { 
 
+        
+            playerRb.velocity = Vector3.zero;
+         
+        }
+    }
 
 
 
