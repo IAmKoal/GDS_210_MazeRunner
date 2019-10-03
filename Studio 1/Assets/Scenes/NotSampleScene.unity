@@ -1305,6 +1305,12 @@ PrefabInstance:
       propertyPath: deathSource
       value: 
       objectReference: {fileID: 61325264}
+    - target: {fileID: 6589305865748754501, guid: ede663941c3acc54b845b04ae540de02,
+        type: 3}
+      propertyPath: wallSections.Array.data[0]
+      value: 
+      objectReference: {fileID: 3310502315543199747, guid: 6d3448704b70eaf40ba31b11a8703561,
+        type: 3}
     - target: {fileID: 3044584071674274541, guid: ede663941c3acc54b845b04ae540de02,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -1315,12 +1321,12 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 163741215251293305, guid: ede663941c3acc54b845b04ae540de02,
+    - target: {fileID: 1535903709531142079, guid: ede663941c3acc54b845b04ae540de02,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1535903709531142079, guid: ede663941c3acc54b845b04ae540de02,
+    - target: {fileID: 163741215251293305, guid: ede663941c3acc54b845b04ae540de02,
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0

@@ -33,8 +33,13 @@ public class Scoring : MonoBehaviour
     void UpdateUIScore()
     {
         text.text = scoreWord + currentScore;
-        Singleton.Instance.hiScore = currentScore;
-        PlayerPrefs.SetFloat("highscore", currentScore);
+        if(currentScore > Singleton.Instance.hiScore)
+        {
+            Singleton.Instance.hiScore = currentScore;
+            PlayerPrefs.SetFloat("highscore", currentScore);
+        }
+        
+        
     }
 
     //Created by Josh Shinnick.

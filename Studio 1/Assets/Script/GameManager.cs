@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,22 +16,24 @@ public class GameManager : MonoBehaviour
     public int easyCount = 5;
     public int medCount = 10;
     public int hardCount = 15;
-
+    public AudioSource musicSource;
+    public AudioClip  musicClip;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
-   
+
+        musicSource.clip = musicClip;
   
-        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y -15, sectionSpawn.position.z);
-        Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 29, sectionSpawn.position.z);
+        Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y -8, sectionSpawn.position.z);
+        Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 22, sectionSpawn.position.z);
         GameObject sect1 = Instantiate(wallSections[0], firstSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect1);
         GameObject sect2 = Instantiate(wallSections[Random.Range(1, 5)], secondSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect2);
         sectionCount += 1;
+        musicSource.Play();
     }
 
     // Update is called once per frame

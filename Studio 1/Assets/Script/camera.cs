@@ -6,7 +6,11 @@ public class camera : MonoBehaviour
 {
     public Transform player;
     public Vector3 cameraDisplacement;
-    
+    private void Start()
+    {
+       
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -16,7 +20,8 @@ public class camera : MonoBehaviour
     //fucntion for moving th camera
     void MoveCamera()
     {
-        transform.position = player.transform.position + cameraDisplacement;
+        transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, 0, 0),
+player.transform.position.y, player.transform.position.z) + cameraDisplacement;
     }
 
     public void QuitButton()
