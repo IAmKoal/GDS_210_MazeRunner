@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> wallSections;
     public List<GameObject> activeSections;
     public Transform sectionSpawn;
-    Vector3 levelDisplacement = new Vector3(0, -19, 0);
+    Vector3 levelDisplacement = new Vector3(0, -20, 0);
     public int sectionCount = 0;
     public int easyCount = 5;
     public int medCount = 10;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
    
   
         Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y -15, sectionSpawn.position.z);
-        Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 29, sectionSpawn.position.z);
+        Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 30, sectionSpawn.position.z);
         GameObject sect1 = Instantiate(wallSections[0], firstSpawn, Quaternion.identity) as GameObject;
         activeSections.Add(sect1);
         GameObject sect2 = Instantiate(wallSections[Random.Range(1, 5)], secondSpawn, Quaternion.identity) as GameObject;

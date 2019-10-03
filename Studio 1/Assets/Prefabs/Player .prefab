@@ -170,7 +170,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7096805587616328329, guid: 750e1418c4176b64d860826084db3660,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2d14ef2c88e61d24bb524679fc332889, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -461,6 +461,8 @@ MonoBehaviour:
   shield: 0
   invulnerable: 0
   sR: {fileID: 6589305864033156823}
+  powerupSource: {fileID: 1535903709531142079}
+  powerupClip: {fileID: 8300000, guid: 2d14ef2c88e61d24bb524679fc332889, type: 3}
 --- !u!114 &6589305865748754501
 MonoBehaviour:
   m_ObjectHideFlags: 0
