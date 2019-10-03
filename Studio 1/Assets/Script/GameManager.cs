@@ -18,13 +18,16 @@ public class GameManager : MonoBehaviour
     public int hardCount = 15;
     public AudioSource musicSource;
     public AudioClip  musicClip;
+    public AudioSource hitSource;
+    public AudioClip hitClip;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
 
         musicSource.clip = musicClip;
+        hitSource.clip = hitClip;
   
         Vector3 firstSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y -8, sectionSpawn.position.z);
         Vector3 secondSpawn = new Vector3(sectionSpawn.position.x, sectionSpawn.position.y - 22, sectionSpawn.position.z);
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
         activeSections.Add(sect2);
         sectionCount += 1;
         musicSource.Play();
+
+
     }
 
     // Update is called once per frame
@@ -103,8 +108,7 @@ public class GameManager : MonoBehaviour
             activeSections.Add(newSect.gameObject);
         }else if (sectionCount > hardCount) // FURTHER
         {
-            GameObject newSect = Instantiate(wallSections[Random.Range(9, 11)], newSpawn, Quaternion.identity) as GameObject;
-            activeSections.Add(newSect.gameObject);
+            sectionCount = 0; //reset to easy sections
         }
        
        
@@ -120,6 +124,10 @@ public class GameManager : MonoBehaviour
                 other.gameObject.GetComponent<LevelController>().deletedLevel = true;
             }
         }
+    }
+   private void OnCollisionEnter2D(Collision2D collision)
+    {
+        hitSource.Play();
     }
 
     void sectionCollector()

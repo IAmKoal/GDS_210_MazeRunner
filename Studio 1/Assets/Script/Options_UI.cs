@@ -15,6 +15,8 @@ public class Options_UI : MonoBehaviour
     public Text masterPerText;
     public Text musicPerText;
     public Text effectPerText;
+
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -29,22 +31,14 @@ public class Options_UI : MonoBehaviour
             case 0: //tilt case (accelerometer)
                 Singleton.Instance.isTilted = true;
                 Singleton.Instance.isSlidered = false;
-                Singleton.Instance.isTouched = false;
                 break;
             case 1: //Slider case
                 Singleton.Instance.isTilted = false;
                 Singleton.Instance.isSlidered = true;
-                Singleton.Instance.isTouched = false;
-                break;
-            case 2: //Touch case
-                Singleton.Instance.isTilted = false;
-                Singleton.Instance.isSlidered = false;
-                Singleton.Instance.isTouched = true;
                 break;
             default:
                 Singleton.Instance.isTilted = true;
                 Singleton.Instance.isSlidered = false;
-                Singleton.Instance.isTouched = false;
                 break;
         }
     }
@@ -57,6 +51,7 @@ public class Options_UI : MonoBehaviour
         musicPerText.text = Mathf.RoundToInt(musicVolumeSlider.value * 100) + "%";
         effectVolumeSlider.value = PlayerPrefs.GetFloat("soundEffectVolume", 1);
         effectPerText.text = Mathf.RoundToInt(effectVolumeSlider.value * 100) + "%";
+
     }
     public void TiltButton()
     {
@@ -96,7 +91,7 @@ public class Options_UI : MonoBehaviour
     {
         GameMixer.SetFloat("soundEffectVolume", Mathf.Log10(vol) * 20);
         PlayerPrefs.SetFloat("soundEffectVolume", vol);
-        effectPerText.text = Mathf.RoundToInt(vol * 100) + "%";
+        effectPerText.text = Mathf.RoundToInt(vol * 70) + "%";
     }
 }
 

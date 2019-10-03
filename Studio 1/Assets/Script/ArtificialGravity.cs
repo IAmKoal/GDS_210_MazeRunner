@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArtificialGravity : MonoBehaviour
 {
@@ -34,12 +35,29 @@ public class ArtificialGravity : MonoBehaviour
     public Vector2 accelVector = new Vector2();
 
     public Rigidbody2D playerRb;
+    public Slider slider;
+
+    private void Awake()
+    {
+        if (Singleton.Instance.isSlidered == true)
+        {
+            slider.gameObject.transform.localPosition = new Vector2(0, 128);
+            
+        }
+        if (Singleton.Instance.isTilted == true)
+        {
+            slider.gameObject.transform.localPosition = new Vector2(1000, 128);
+            //slider.gameobject.setActive(false) not working
+        }
+    }
     private void Start()
     {
         rightX = Mathf.Cos(Mathf.Asin(yHeight));
         //Debug.Log(rightX);
         leftX = -Mathf.Cos(Mathf.Asin(yHeight));
         //Debug.Log(leftX);
+        slider = GetComponent<Slider>();
+       
     }
 
     // Update is called once per frame
@@ -60,7 +78,7 @@ public class ArtificialGravity : MonoBehaviour
             if (Singleton.Instance.isSlidered == true)
 
             {
-
+                
                 playerRb.AddForce(gravityAngle * gravityStrength * Time.deltaTime);
 
             }
