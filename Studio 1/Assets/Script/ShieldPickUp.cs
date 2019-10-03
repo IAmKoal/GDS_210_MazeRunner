@@ -9,10 +9,19 @@ public class ShieldPickUp : MonoBehaviour
     public SpriteRenderer sR;
     GameObject player;
 
+    public AudioSource powerupSource;
+    public AudioClip powerupClip;
+
+
+    private void Start()
+    {
+        powerupSource.clip = powerupClip;
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Shield"))
         {
+            powerupSource.PlayOneShot(powerupClip);
             player = collider.gameObject;
             shield = true;
             sR.color = Color.blue;

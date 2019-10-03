@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> wallSections;
     public List<GameObject> activeSections;
     public Transform sectionSpawn;
-    Vector3 levelDisplacement = new Vector3(0, -19, 0);
+    Vector3 levelDisplacement = new Vector3(0, -20, 0);
     public int sectionCount = 0;
     public int easyCount = 5;
     public int medCount = 10;
